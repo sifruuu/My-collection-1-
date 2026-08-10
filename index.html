@@ -1,1 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>SAIF CUTS | Premium Barbershop</title>
+
+    <meta name="description"
+          content="SAIF CUTS is a modern barbershop offering premium haircuts, beard styling and grooming services.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0b0b;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(11, 11, 11, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #242424;
+        }
+
+        .nav-container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #d6a84f;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #cccccc;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d6a84f;
+        }
+
+        .nav-button {
+            background: #d6a84f;
+            color: #111 !important;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 75% 40%, #3b2d16 0%, #15120d 20%, #0b0b0b 50%);
+        }
+
+        .hero-container {
+            max-width: 1150px;
+            width: 100%;
+            margin: auto;
+            padding: 120px 25px 70px;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .small-title {
+            color: #d6a84f;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 86px);
+            line-height: 0.98;
+            margin-bottom: 25px;
+            letter-spacing: -3px;
+        }
+
+        .hero h1 span {
+            color: #d6a84f;
+        }
+
+        .hero p {
+            color: #bdbdbd;
+            max-width: 570px;
+            font-size: 18px;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            border-radius: 7px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #d6a84f;
+            color: #111;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background: #e5ba63;
+        }
+
+        .btn-secondary {
+            border: 1px solid #555;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            border-color: #d6a84f;
+            color: #d6a84f;
+        }
+
+        /* GENERAL */
+
+        section {
+            padding: 100px 25px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title .small-title {
+            margin-bottom: 8px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+        }
+
+        /* SERVICES */
+
+        .services {
+            background: #101010;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background: #171717;
+            border: 1px solid #292929;
+            border-radius: 12px;
+            padding: 32px;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-7px);
+            border-color: #d6a84f;
+        }
+
+        .service-icon {
+            font-size: 35px;
+            margin-bottom: 18px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 10px;
+            font-size: 21px;
+        }
+
+        .service-card p {
+            color: #999;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            color: #d6a84f;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-box {
+            height: 420px;
+            border-radius: 15px;
+            background:
+                linear-gradient(135deg, #2b2416, #111 60%);
+            border: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 90px;
+        }
+
+        .about-text h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #aaa;
+            margin-bottom: 18px;
+        }
+
+        .features {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .features li {
+            margin-bottom: 12px;
+            color: #ddd;
+        }
+
+        .features li::before {
+            content: "✓";
+            color: #d6a84f;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* TESTIMONIALS */
+
+        .testimonials {
+            background: #101010;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .testimonial {
+            background: #171717;
+            border: 1px solid #292929;
+            padding: 28px;
+            border-radius: 12px;
+        }
+
+        .stars {
+            color: #d6a84f;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .testimonial p {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .customer {
+            font-weight: bold;
+        }
+
+        /* CONTACT */
+
+        .contact-box {
+            background: linear-gradient(135deg, #211a0e, #121212);
+            border: 1px solid #493b21;
+            border-radius: 15px;
+            padding: 55px;
+            text-align: center;
+        }
+
+        .contact-box h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: #aaa;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            color: #ccc;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid #222;
+            padding: 30px 25px;
+            text-align: center;
+            color: #777;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .service-grid,
+            .testimonial-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+            }
+
+            .about-box {
+                height: 300px;
+            }
+
+            .contact-box {
+                padding: 35px 20px;
+            }
+
+            .contact-box h2 {
+                font-size: 32px;
+            }
+
+            section {
+                padding: 75px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <div class="nav-container">
+
+            <a href="#" class="logo">
+                SAIF<span>CUTS</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li>
+                    <a href="#contact" class="nav-button">
+                        Book Now
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-container">
+
+            <div class="hero-content">
+
+                <div class="small-title">
+                    Premium Barbershop
+                </div>
+
+                <h1>
+                    LOOK SHARP.<br>
+                    <span>FEEL CONFIDENT.</span>
+                </h1>
+
+                <p>
+                    Modern cuts, classic techniques and professional
+                    grooming. Walk in looking good. Walk out feeling even better.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#contact" class="btn btn-primary">
+                        Book an Appointment
+                    </a>
+
+                    <a href="#services" class="btn btn-secondary">
+                        View Services
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+
+    <section class="services" id="services">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <div class="small-title">
+                    What We Do
+                </div>
+
+                <h2>Our Services</h2>
+
+            </div>
+
+
+            <div class="service-grid">
+
+                <div class="service-card">
+
+                    <div class="service-icon">✂️</div>
+
+                    <h3>Classic Haircut</h3>
+
+                    <p>
+                        A clean, professional haircut finished
+                        to your preference.
+                    </p>
+
+                    <div class="price">
+                        ₹300
+                    </div>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">💈</div>
+
+                    <h3>Hair + Beard</h3>
+
+                    <p>
+                        Complete grooming with a haircut and
+                        professionally shaped beard.
+                    </p>
+
+                    <div class="price">
+                        ₹500
+                    </div>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">🪒</div>
+
+                    <h3>Beard Styling</h3>
+
+                    <p>
+                        Shape, trim and style your beard for
+                        a clean finished look.
+                    </p>
+
+                    <div class="price">
+                        ₹250
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <div class="about-grid">
+
+                <div class="about-box">
+                    💈
+                </div>
+
+                <div class="about-text">
+
+                    <div class="small-title">
+                        About Us
+                    </div>
+
+                    <h2>
+                        More Than Just A Haircut.
+                    </h2>
+
+                    <p>
+                        SAIF CUTS was created for people who care about
+                        looking their best without overcomplicating things.
+                    </p>
+
+                    <p>
+                        Our barbers combine modern styles with traditional
+                        attention to detail to give every customer a
+                        haircut they can be confident in.
+                    </p>
+
+                    <ul class="features">
+                        <li>Experienced barbers</li>
+                        <li>Premium grooming products</li>
+                        <li>Clean and comfortable environment</li>
+                        <li>Appointments and walk-ins welcome</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- REVIEWS -->
+
+    <section class="testimonials" id="reviews">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <div class="small-title">
+                    Customer Reviews
+                </div>
+
+                <h2>What People Say</h2>
+
+            </div>
+
+
+            <div class="testimonial-grid">
+
+                <div class="testimonial">
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        "Great service and the haircut came out exactly
+                        how I wanted. Definitely coming back."
+                    </p>
+
+                    <div class="customer">
+                        — Rahul
+                    </div>
+
+                </div>
+
+
+                <div class="testimonial">
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        "Really clean shop and friendly barber.
+                        The attention to detail was excellent."
+                    </p>
+
+                    <div class="customer">
+                        — Arjun
+                    </div>
+
+                </div>
+
+
+                <div class="testimonial">
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        "Finally found a barber who understands
+                        the style I want. Highly recommended."
+                    </p>
+
+                    <div class="customer">
+                        — Karan
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <div class="container">
+
+            <div class="contact-box">
+
+                <div class="small-title">
+                    Ready For A Fresh Cut?
+                </div>
+
+                <h2>
+                    Book Your Appointment
+                </h2>
+
+                <p>
+                    Contact us today to reserve your appointment.
+                    Walk-ins are also welcome.
+                </p>
+
+                <div class="buttons" style="justify-content:center;">
+
+                    <!-- CHANGE THIS NUMBER -->
+                    <a
+                        href="https://wa.me/919876543210"
+                        class="btn btn-primary"
+                        target="_blank"
+                    >
+                        WhatsApp Us
+                    </a>
+
+                    <a
+                        href="tel:+919876543210"
+                        class="btn btn-secondary"
+                    >
+                        Call Us
+                    </a>
+
+                </div>
+
+
+                <div class="contact-details">
+
+                    <div>
+                        📍 Chennai, India
+                    </div>
+
+                    <div>
+                        🕐 Mon–Sun: 9 AM – 9 PM
+                    </div>
+
+                    <div>
+                        📞 +91 98765 43210
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 SAIF CUTS. All rights reserved.
+
+    </footer>
+
+
+</body>
+</html>
