@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TN31 Ready Made Showroom</title>
+<meta name="description" content="TN31 Ready Made Showroom in Chidambaram, Tamil Nadu. Men's clothing, delivery and on-site services.">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#f8f6f2;color:#171717;font-family:Arial,Helvetica,sans-serif}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(248,246,242,.96);border-bottom:1px solid #e7e1d8}
+.nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.logo{font-weight:900;letter-spacing:.08em}
+.logo span{color:#b6783e}
+.navlinks{display:flex;gap:24px;font-size:14px;font-weight:700}
+.button{display:inline-flex;align-items:center;justify-content:center;padding:13px 19px;border-radius:30px;background:#171717;color:#fff;font-weight:700;font-size:14px}
+.button.secondary{background:#fff;color:#171717;border:1px solid #ddd5cb}
+.hero{padding:70px 0 55px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:45px;align-items:center}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#b6783e}
+h1,h2{font-family:Georgia,serif}
+h1{font-size:clamp(46px,6vw,76px);line-height:.98;margin:16px 0}
+.lead{color:#686868;font-size:17px;line-height:1.75;max-width:620px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0}
+.rating{font-weight:700}.stars{color:#d3913f;letter-spacing:2px}
+.hero-image{height:500px;border-radius:25px;overflow:hidden;background:#ddd}
+.hero-image img,.gallery img{width:100%;height:100%;object-fit:cover}
+section{padding:70px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:28px}
+h2{font-size:42px;margin:8px 0}
+.section-head p{max-width:520px;color:#686868;line-height:1.7}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.card{background:#fff;border:1px solid #e7e1d8;border-radius:18px;padding:24px}
+.card b{display:block;margin-bottom:8px}
+.card p{margin:0;color:#686868;font-size:14px;line-height:1.55}
+.gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.gallery figure{margin:0;height:285px;border-radius:18px;overflow:hidden;background:#ddd}
+.gallery figure:nth-child(1){grid-column:span 7}
+.gallery figure:nth-child(2){grid-column:span 5}
+.gallery figure:nth-child(3){grid-column:span 5}
+.gallery figure:nth-child(4){grid-column:span 7}
+.gallery figure:nth-child(5){grid-column:span 6}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.panel{background:#fff;border:1px solid #e7e1d8;border-radius:22px;padding:29px}
+.panel h3{margin-top:0}
+.hours{display:grid;grid-template-columns:1fr auto;gap:12px;border-top:1px solid #e7e1d8;padding-top:13px}
+.hours div:nth-child(even){font-weight:700}
+.review{background:#171717;color:#fff;border-radius:23px;padding:40px}
+.review blockquote{font:600 25px/1.5 Georgia,serif;margin:16px 0}
+.review small{color:#ccc}
+footer{border-top:1px solid #e7e1d8;padding:30px 0;color:#777;font-size:13px}
+@media(max-width:800px){
+ .navlinks{display:none}.hero-grid,.info{grid-template-columns:1fr}
+ .hero-image{height:380px}.cards{grid-template-columns:1fr 1fr}
+ .section-head{display:block}.gallery figure,.gallery figure:nth-child(n){grid-column:span 12;height:260px}
+}
+@media(max-width:480px){.cards{grid-template-columns:1fr}.hero-image{height:320px}}
+
+/* Mega menus */
+.menu-wrap{position:relative}
+.menu-trigger{cursor:pointer}
+.mega-menu{position:absolute;top:calc(100% + 1px);left:50%;transform:translateX(-50%);width:min(980px,92vw);background:#fff;border:1px solid #e7e1d8;border-top:3px solid #d65b68;box-shadow:0 18px 45px rgba(0,0,0,.12);display:none;z-index:50}
+.mega-menu.open{display:block}
+.mega-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.mega-col{padding:24px 26px;border-right:1px solid #eee}
+.mega-col:last-child{border-right:0}
+.mega-title{color:#e75b69;font-weight:800;margin-bottom:10px}
+.mega-item{display:block;padding:4px 0;color:#333;font-size:14px}
+.mega-item:hover{color:#e75b69}
+.mega-note{padding:14px 26px;border-top:1px solid #eee;color:#777;font-size:12px}
+@media(max-width:800px){
+ .mega-menu{position:fixed;top:70px;left:4%;transform:none;width:92%;max-height:75vh;overflow:auto}
+ .mega-grid{grid-template-columns:1fr 1fr}
+ .mega-col{padding:20px}
+}
+@media(max-width:480px){.mega-grid{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+<header>
+<div class="container nav">
+<div class="logo">TN<span>31</span> READY MADE</div>
+<nav class="navlinks">
+<div class="menu-wrap">
+<a href="#" class="menu-trigger" data-menu="menMenu">Men ▾</a>
+<div class="mega-menu" id="menMenu">
+<div class="mega-grid">
+<div class="mega-col">
+<div class="mega-title">Topwear</div>
+<a class="mega-item" href="#collection">T-Shirts</a>
+<a class="mega-item" href="#collection">Shirts</a>
+<a class="mega-item" href="#collection">Casual Tops</a>
+</div>
+<div class="mega-col">
+<div class="mega-title">Bottomwear</div>
+<a class="mega-item" href="#collection">Jeans</a>
+<a class="mega-item" href="#collection">Trousers</a>
+<a class="mega-item" href="#collection">Casual Bottomwear</a>
+</div>
+<div class="mega-col">
+<div class="mega-title">Store Collection</div>
+<a class="mega-item" href="#gallery">View Store Photos</a>
+<a class="mega-item" href="#visit">Visit Showroom</a>
+</div>
+<div class="mega-col">
+<div class="mega-title">Need Help?</div>
+<a class="mega-item" href="tel:+919788596657">Call the Showroom</a>
+<a class="mega-item" href="https://maps.app.goo.gl/PQKoqAijDnhqkKxN8" target="_blank" rel="noopener">Get Directions</a>
+</div>
+</div>
+<div class="mega-note">Categories shown here are limited to clothing types visible in the supplied TN31 showroom photos; exact stock and sizes can vary.</div>
+</div>
+</div>
+
+<div class="menu-wrap">
+<a href="#" class="menu-trigger" data-menu="buyMenu">Buy ▾</a>
+<div class="mega-menu" id="buyMenu">
+<div class="mega-grid">
+<div class="mega-col">
+<div class="mega-title">Topwear</div>
+<a class="mega-item" href="#collection">T-Shirts</a>
+<a class="mega-item" href="#collection">Shirts</a>
+</div>
+<div class="mega-col">
+<div class="mega-title">Bottomwear</div>
+<a class="mega-item" href="#collection">Jeans</a>
+<a class="mega-item" href="#collection">Trousers</a>
+</div>
+<div class="mega-col">
+<div class="mega-title">Browse</div>
+<a class="mega-item" href="#gallery">Store Collection</a>
+<a class="mega-item" href="#visit">Opening Hours</a>
+</div>
+<div class="mega-col">
+<div class="mega-title">Order / Enquire</div>
+<a class="mega-item" href="tel:+919788596657">Call 9788596657</a>
+<a class="mega-item" href="https://maps.app.goo.gl/PQKoqAijDnhqkKxN8" target="_blank" rel="noopener">Get Directions</a>
+</div>
+</div>
+<div class="mega-note">This is a showroom catalogue, not an online checkout. Call the store to confirm availability, size and price.</div>
+</div>
+</div>
+
+<a href="#gallery">Gallery</a>
+<a href="#visit">Visit</a>
+</nav>
+<a class="button" href="tel:+919788596657">Call Now</a>
+</div>
+</header>
+
+<main>
+<section class="hero">
+<div class="container hero-grid">
+<div>
+<div class="eyebrow">Men's Clothing · Chidambaram</div>
+<h1>Find your next everyday look.</h1>
+<p class="lead">Discover men's ready-made clothing with a trendy collection, quality products and friendly customer service at TN31 Ready Made Showroom.</p>
+<div class="actions">
+<a class="button" href="tel:+919788596657">Call 9788596657</a>
+<a class="button secondary" href="https://maps.app.goo.gl/PQKoqAijDnhqkKxN8" target="_blank" rel="noopener">Get Directions</a>
+</div>
+<div class="rating"><span class="stars">★★★★★</span> 4.8 · 53 reviews</div>
+</div>
+<div class="hero-image"><img src="images/photo-1.png" alt="TN31 Ready Made Showroom"></div>
+</div>
+</section>
+
+<section id="collection">
+<div class="container">
+<div class="section-head">
+<div><div class="eyebrow">The collection</div><h2>Men's fashion, ready to wear.</h2></div>
+<p>Men's clothing with trendy collections, quality products and convenient service.</p>
+</div>
+<div class="cards">
+<div class="card"><b>Men's Clothing</b><p>Ready-made styles for everyday and occasion wear.</p></div>
+<div class="card"><b>Trendy Collection</b><p>Fresh designs and styles highlighted by customers.</p></div>
+<div class="card"><b>Delivery</b><p>Delivery service available.</p></div>
+<div class="card"><b>Easy Payments</b><p>Credit cards, debit cards and NFC mobile payments.</p></div>
+</div>
+</div>
+</section>
+
+<section id="gallery">
+<div class="container">
+<div class="section-head">
+<div><div class="eyebrow">Inside TN31</div><h2>See the showroom.</h2></div>
+<p>A visual look at the store and its clothing collection.</p>
+</div>
+<div class="gallery">
+<figure><img src="images/photo-1.png" alt="Showroom interior"></figure>
+<figure><img src="images/photo-2.png" alt="Men's clothing"></figure>
+<figure><img src="images/photo-3.png" alt="TN31 branding"></figure>
+<figure><img src="images/photo-4.png" alt="Clothing collection"></figure>
+<figure><img src="images/photo-5.png" alt="Showroom interior"></figure>
+</div>
+</div>
+</section>
+
+<section id="visit">
+<div class="container info">
+<div class="panel">
+<h3>Visit the showroom</h3>
+<p><strong>No: 47, SOS Complex</strong><br>
+West Car St, behind Milan Readymades<br>
+Chidambaram, Tamil Nadu 608001</p>
+<div class="actions">
+<a class="button" href="https://maps.app.goo.gl/PQKoqAijDnhqkKxN8" target="_blank" rel="noopener">Get Directions</a>
+<a class="button secondary" href="tel:+919788596657">Call Us</a>
+</div>
+</div>
+<div class="panel">
+<h3>Opening hours</h3>
+<div class="hours">
+<div>Monday</div><div>9:00 AM–10:30 PM</div>
+<div>Tuesday</div><div>9:00 AM–10:30 PM</div>
+<div>Wednesday</div><div>9:00 AM–10:30 PM</div>
+<div>Thursday</div><div>9:00 AM–10:30 PM</div>
+<div>Friday</div><div>9:00 AM–10:30 PM</div>
+<div>Saturday</div><div>9:00 AM–10:30 PM</div>
+<div>Sunday</div><div>9:00 AM–10:30 PM</div>
+</div>
+<p style="font-size:12px;color:#888">Hours may differ on holidays.</p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="review">
+<div class="stars">★★★★★</div>
+<blockquote>“Good quality. Customer good response.”</blockquote>
+<small>Customer review · 4.8/5 from 53 reviews</small>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container info">
+<div>
+<div class="eyebrow">Come by</div>
+<h2>Ready to find your next look?</h2>
+<p class="lead">Visit TN31 Ready Made Showroom in Chidambaram or call ahead for details.</p>
+</div>
+<div class="panel">
+<h3>TN31 Ready Made Showroom</h3>
+<p>📞 <strong>9788596657</strong></p>
+<p>📍 West Car St, Chidambaram</p>
+<p>🚚 Delivery available</p>
+<p>💳 Credit · Debit · NFC payments</p>
+<a class="button" href="https://maps.app.goo.gl/PQKoqAijDnhqkKxN8" target="_blank" rel="noopener">Open in Google Maps</a>
+</div>
+</div>
+</section>
+</main>
+
+<footer><div class="container">© 2026 TN31 Ready Made Showroom · Chidambaram, Tamil Nadu</div></footer>
+
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+  const triggers=document.querySelectorAll("[data-menu]");
+  const menus=document.querySelectorAll(".mega-menu");
+  function closeMenus(){menus.forEach(m=>m.classList.remove("open"))}
+  triggers.forEach(t=>{
+    t.addEventListener("click",function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      const menu=document.getElementById(t.dataset.menu);
+      const wasOpen=menu.classList.contains("open");
+      closeMenus();
+      if(!wasOpen) menu.classList.add("open");
+    });
+  });
+  menus.forEach(m=>m.addEventListener("click",e=>e.stopPropagation()));
+  document.addEventListener("click",closeMenus);
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")closeMenus()});
+});
+</script>
+
+</body>
+</html>
