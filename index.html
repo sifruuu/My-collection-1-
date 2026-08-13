@@ -34,6 +34,107 @@ input,select{width:100%;padding:13px;margin:6px 0;background:#050505;border:1px 
 .load{height:4px;background:#27210e;border-radius:5px;overflow:hidden;margin-top:20px}.load i{display:block;height:100%;width:35%;background:var(--g);animation:load 1.2s infinite}@keyframes load{from{transform:translateX(-120%)}to{transform:translateX(330%)}}
 @media(max-width:900px){.links{display:none}.heroGrid{grid-template-columns:1fr}.art{min-height:300px}.grid4{grid-template-columns:repeat(2,1fr)}.plans,.trainers{grid-template-columns:1fr}}
 @media(max-width:560px){.nav{gap:10px}.logo{font-size:23px}.heroBox{padding:32px;min-height:450px}.grid4{grid-template-columns:1fr}.head{display:block}.head h2{font-size:32px}}
+
+/* ===== XYZ GYM POLISH PASS ===== */
+body{font-size:16px;line-height:1.45;overflow-x:hidden}
+.wrap{width:min(1240px,92%);margin:auto}
+.top{padding:9px 15px;font-size:11px}
+.nav{height:76px;gap:30px}
+.logo{font-size:26px;white-space:nowrap}
+.links{gap:25px;font-size:14px}
+.links a{transition:color .2s,transform .2s}
+.hero{padding:32px 0 22px}
+.heroGrid{grid-template-columns:minmax(0,1.02fr) minmax(360px,.98fr);gap:20px}
+.heroBox,.art{min-height:560px}
+.heroBox{padding:64px}
+h1{font-size:clamp(58px,7vw,92px);max-width:760px}
+.heroBox p{font-size:16px;max-width:600px}
+.actions{margin-top:25px}
+section{padding:82px 0}
+.head{margin-bottom:30px}
+.head h2{font-size:46px}
+.grid4{gap:16px}
+.card{min-height:205px;padding:27px}
+.card h3{font-size:19px}
+.card p{font-size:14px}
+.icon{width:62px;height:62px}
+.plans{gap:16px}
+.plan{padding:30px;min-height:365px}
+.plan h3{font-size:27px}
+.price{font-size:37px}
+.trainers{gap:16px}
+.trainer{padding:28px;min-height:175px}
+.avatar{width:66px;height:66px}
+.cta{padding:48px}
+.cta h2{font-size:46px!important}
+.photoStrip{padding:24px 0 78px}
+.photoFrame{height:500px}
+.photoOverlay{padding:45px}
+.photoOverlay h2{font-size:48px}
+footer{padding:42px 0}
+
+/* Make the hero image feel like a premium visual rather than a separate box. */
+.art{background-position:center}
+.art:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0008,#0000 55%,#0005);z-index:1;pointer-events:none}
+
+/* Stronger but still restrained hover effects. */
+.card,.plan,.trainer{will-change:transform}
+.card:hover,.plan:hover,.trainer:hover{transform:translateY(-8px) scale(1.018)}
+.btn{box-shadow:0 0 0 transparent}
+.btn:hover{box-shadow:0 14px 35px #f3c51b24}
+
+/* Better form presentation */
+.box{padding:34px}
+.box h2{font-size:30px;margin:10px 0 20px}
+input,select{font-size:15px;padding:14px}
+.formbtn{padding:14px}
+
+/* Desktop spacing */
+@media(min-width:1100px){
+  .heroBox h1{letter-spacing:-.08em}
+  .heroBox{border-radius:30px}
+  .art{border-radius:30px}
+}
+
+/* Tablet */
+@media(max-width:900px){
+  .nav{height:68px}
+  .links{display:none}
+  .heroGrid{grid-template-columns:1fr}
+  .heroBox,.art{min-height:470px}
+  .heroBox{padding:48px}
+  .head h2{font-size:40px}
+  .grid4{grid-template-columns:repeat(2,1fr)}
+  .plans,.trainers{grid-template-columns:1fr}
+}
+
+/* Phone */
+@media(max-width:560px){
+  .wrap{width:min(94%,520px)}
+  .top{font-size:9px;letter-spacing:.1em}
+  .nav{height:64px}
+  .logo{font-size:21px}
+  header .btn{padding:9px 12px;font-size:11px}
+  .hero{padding-top:16px}
+  .heroGrid{gap:12px}
+  .heroBox{padding:32px 25px;min-height:455px}
+  .heroBox p{font-size:14px}
+  h1{font-size:clamp(52px,14vw,72px)}
+  .art{min-height:300px}
+  section{padding:60px 0}
+  .head{display:block}
+  .head h2{font-size:34px;margin-bottom:5px}
+  .grid4{grid-template-columns:1fr}
+  .card{min-height:auto}
+  .plan{min-height:auto}
+  .photoStrip{padding:12px 0 58px}
+  .photoFrame{height:310px;border-radius:22px}
+  .photoOverlay{padding:25px}
+  .photoOverlay h2{font-size:31px}
+  .cta{padding:30px 25px}
+  .cta h2{font-size:34px!important}
+}
+
 </style></head><body>
 <div class="top">XYZ GYM · TRAIN HARD · TRAIN SMART</div>
 <header><div class="wrap nav"><a class="logo" href="#"><span>XYZ</span> GYM</a><nav class="links"><a href="#programs">Programs</a><a href="#plans">Memberships</a><a href="#trainers">Trainers</a><a href="#about">About</a></nav><div class="spacer"></div><button class="btn" onclick="openBook()">Book Appointment</button></div></header>
