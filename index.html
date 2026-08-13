@@ -1,0 +1,135 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>XYZ — Dope Store</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#050914;color:#eef4ff;font-family:Arial,sans-serif}a{text-decoration:none;color:inherit}button{cursor:pointer}
+.container{width:min(1150px,92%);margin:auto}.top{background:#02040a;color:#fff;text-align:center;padding:8px;font-size:12px}
+header{position:sticky;top:0;background:#050914ee;backdrop-filter:blur(12px);border-bottom:1px solid #17243d;z-index:5}.nav{height:68px;display:flex;align-items:center;gap:25px}.logo{font-size:28px;font-weight:1000}.navlinks{display:flex;gap:20px;font-weight:700}.spacer{flex:1}.pill{border:0;background:#0b2b57;color:#fff;padding:11px 16px;border-radius:25px;font-weight:800}
+.hero{padding:35px 0}.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.hero-copy{background:linear-gradient(135deg,#02040a,#071a38);color:#fff;border-radius:25px;padding:55px}.hero h1{font-size:clamp(55px,8vw,100px);line-height:.85;margin:15px 0;letter-spacing:-.07em}.muted{color:#8fa2bf}.hero-copy .muted{color:#aebbd0}.hero-image{background:radial-gradient(circle at 50% 40%,#173c72,#071326 55%,#02040a);border-radius:25px;display:grid;place-items:center;min-height:450px}.hero-image b{font-size:120px;transform:rotate(-8deg)}
+section{padding:55px 0}.head{display:flex;justify-content:space-between;align-items:end;margin-bottom:22px}h2{font-size:40px;margin:5px 0}.filters{display:flex;gap:8px;overflow:auto;margin-bottom:20px}.filter{border:1px solid #1b3152;background:#091224;color:#dce8fa;padding:10px 15px;border-radius:20px;white-space:nowrap}.active{background:#123b72;color:#fff}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.product{background:#0a1222;border:1px solid #1a2b48;border-radius:18px;overflow:hidden}.pic{aspect-ratio:1;background:linear-gradient(145deg,#0d1e38,#02040a);display:grid;place-items:center;position:relative}.pic b{font-size:55px}.badge{position:absolute;top:10px;left:10px;background:#d9ff32;padding:6px 9px;border-radius:20px;font-size:10px;font-weight:900}.info{padding:15px}.info h3{margin:0 0 5px}.price{font-weight:900;margin-top:8px}.actions{display:flex;gap:7px;margin-top:12px}.actions button{flex:1;padding:10px;border:0;border-radius:9px;background:#123b72;color:#fff;font-weight:700}.actions .ghost{background:#14243c;color:#dce8fa}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:15px}.card,.admin{background:#0a1222;border:1px solid #1a2b48;border-radius:20px;padding:28px}.admin{background:#02040a;color:#fff}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{background:#222;padding:18px;border-radius:13px}.stat b{font-size:25px}
+.drawer,.modal{position:fixed;inset:0;background:#0008;z-index:20;display:none}.drawer.open,.modal.open{display:block}.drawer .panel{position:absolute;right:0;top:0;height:100%;width:min(430px,94%);background:#fff;padding:25px;overflow:auto}.modal{display:none;place-items:center;padding:15px}.modal.open{display:grid}.modal-card{background:#fff;width:min(600px,100%);padding:25px;border-radius:20px}.close{float:right;border:0;border-radius:50%;padding:8px}.cartrow{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid #ddd}.mini{width:65px;height:65px;background:#e5e5e0;display:grid;place-items:center;font-weight:900}
+@media(max-width:800px){.navlinks{display:none}.hero-grid,.cards{grid-template-columns:1fr}.products{grid-template-columns:1fr 1fr}.hero-copy{padding:35px}.hero-image{min-height:300px}.stats{grid-template-columns:1fr}}
+@media(max-width:480px){.products{gap:8px}.info{padding:10px}.actions{flex-direction:column}}
+</style>
+<style>
+:root{--navy:#071a38;--blue:#123b72;--blue2:#1e5aa8;--black:#02040a;--text:#eef4ff}
+button,a,.product,.card,.hero-image,.hero-copy,.pic{transition:transform .22s ease,box-shadow .22s ease,background .22s ease,border-color .22s ease}
+button:hover{transform:translateY(-2px)}
+button:active{transform:scale(.94)}
+.pill:hover{background:#1e5aa8;box-shadow:0 8px 24px #123b7266;transform:translateY(-2px) scale(1.03)}
+.navlinks a{transition:color .2s ease,transform .2s ease;display:inline-block}
+.navlinks a:hover{color:#5d9fff;transform:translateY(-2px)}
+.product{transform:translateZ(0)}
+.product:hover{transform:translateY(-7px) scale(1.015);border-color:#24599a;box-shadow:0 18px 40px #0008}
+.product .pic{overflow:hidden}
+.product:hover .pic b{transform:scale(1.18) rotate(-5deg)}
+.product .pic b{transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.product .actions button:hover{transform:scale(1.04)}
+.filter:hover{transform:translateY(-2px);border-color:#2a5f9f}
+.hero-image:hover{transform:scale(1.012);box-shadow:0 20px 55px #0008}
+.hero-image:hover b{transform:scale(1.08) rotate(-10deg)}
+.hero-image b{transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.card:hover{transform:translateY(-6px);border-color:#24599a;box-shadow:0 18px 40px #0007}
+@keyframes floatXYZ{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-10px) rotate(-6deg)}}
+.hero-image b{animation:floatXYZ 3.5s ease-in-out infinite}
+@keyframes pop{0%{transform:scale(.96);opacity:.6}100%{transform:scale(1);opacity:1}}
+.product{animation:pop .35s ease both}
+</style>
+
+<style>
+.top-search{display:flex;align-items:center;background:#091224;border:1px solid #1b3152;border-radius:24px;padding:0 13px;width:min(290px,28vw)}
+.top-search input{width:100%;border:0;outline:0;background:transparent;color:#eef4ff;padding:10px 5px}
+.top-search input::placeholder{color:#7187a7}
+.top-search span{color:#6ea8ff;font-weight:900}
+.category-menu{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0 25px}
+.category-item{background:#091224;color:#dce8fa;border:1px solid #1b3152;border-radius:12px;padding:11px 14px;font-weight:750;transition:.2s}
+.category-item:hover{background:#123b72;transform:translateY(-3px);border-color:#2b6ab5}
+.trending-wrap{margin-top:45px;padding:24px;border:1px solid #1a2b48;border-radius:22px;background:linear-gradient(135deg,#071a38,#050914)}
+.trending-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.trending-title h2{margin:0;font-size:32px}
+.trend-label{background:#d9ff32;color:#050914;padding:7px 11px;border-radius:20px;font-size:11px;font-weight:1000}
+@media(max-width:700px){.top-search{width:145px}.top-search input{font-size:12px}.trending-title h2{font-size:25px}}
+@media(max-width:480px){.top-search{width:125px}.top-search input{font-size:11px}.category-item{padding:9px 11px;font-size:12px}}
+</style>
+</head><body>
+<div class="top">FREE SHIPPING OVER ₹1,999 · DEMO STORE</div>
+<header><div class="container nav"><b class="logo">XYZ</b><nav class="navlinks"><a href="#shop">Shop</a><a href="#new">New</a><a href="#about">About</a><a href="#admin">Admin</a></nav><div class="spacer"></div>
+<div class="top-search"><input id="topSearch" oninput="liveSearch()" placeholder="Search products..." aria-label="Search products"><span>⌕</span></div>
+<button class="pill" onclick="cartOpen()">Cart (<span id="count">0</span>)</button></div></header>
+<main>
+<section class="hero"><div class="container hero-grid"><div class="hero-copy"><small>XYZ / DOPE STORE</small><h1>WEAR<br>YOUR<br>MOOD.</h1><p class="muted">Modern streetwear built for people who want their everyday fit to feel anything but ordinary.</p><button class="pill" onclick="document.querySelector('#shop').scrollIntoView({behavior:'smooth'})">Shop collection</button></div><div class="hero-image"><b>XYZ</b></div></div></section>
+<section id="shop"><div class="container"><div class="head"><div><small>SHOP</small><h2>Pick your category.</h2></div><span class="muted">8 demo products</span></div><div class="filters"><button class="filter active" onclick="filter('All',this)">All</button><button class="filter" onclick="filter('T-Shirts',this)">T-Shirts</button><button class="filter" onclick="filter('Shirts',this)">Shirts</button><button class="filter" onclick="filter('Jeans',this)">Jeans</button><button class="filter" onclick="filter('Trousers',this)">Trousers</button></div>
+<div class="category-menu" aria-label="All categories">
+<button class="category-item" onclick="filter('T-Shirts',this)">T-Shirts</button>
+<button class="category-item" onclick="filter('Shirts',this)">Shirts</button>
+<button class="category-item" onclick="filter('Jeans',this)">Jeans</button>
+<button class="category-item" onclick="filter('Trousers',this)">Trousers</button>
+<button class="category-item" onclick="filter('Hoodies',this)">Hoodies</button>
+<button class="category-item" onclick="filter('Jackets',this)">Jackets</button>
+<button class="category-item" onclick="filter('Shorts',this)">Shorts</button>
+<button class="category-item" onclick="filter('Caps',this)">Caps</button>
+<button class="category-item" onclick="filter('Bags',this)">Bags</button>
+<button class="category-item" onclick="filter('Footwear',this)">Footwear</button>
+<button class="category-item" onclick="filter('Accessories',this)">Accessories</button>
+</div>
+<div class="products" id="products"></div>
+<div class="trending-wrap">
+<div class="trending-title"><h2>Trending products</h2><span class="trend-label">🔥 TRENDING</span></div>
+<div class="products" id="trendingProducts"></div>
+</div>
+</div></section>
+<section id="new"><div class="container cards"><div class="card"><small>NEW DROP</small><h2>Oversized essentials.</h2><p class="muted">Heavyweight tees, relaxed trousers and clean everyday layers.</p><button class="pill" onclick="filter('T-Shirts',document.querySelectorAll('.filter')[1])">Shop tees</button></div><div class="card"><small>DEMO</small><h2>Try checkout.</h2><p class="muted">Cart and checkout work locally in this demo. No real payment is taken.</p><button class="pill" onclick="checkout()">Checkout</button></div></div></section>
+<section id="about"><div class="container"><small>ABOUT</small><h2>A master demo for future clients.</h2><p class="muted">XYZ is a fictional practice store. Product data, orders and payments are demo-only.</p></div></section>
+<section id="admin"><div class="container"><div class="admin"><small>ADMIN DEMO</small><h2>Store control room</h2><div class="stats"><div class="stat"><b>128</b><br>Products</div><div class="stat"><b>24</b><br>Orders</div><div class="stat"><b>₹48.2K</b><br>Demo revenue</div></div></div></div></section>
+</main>
+<footer><div class="container"><b>XYZ DOPE STORE</b><p class="muted">Fictional practice/demo store · No real payments.</p></div></footer>
+
+<div class="drawer" id="drawer"><div onclick="cartClose()" style="position:absolute;inset:0"></div><div class="panel"><button class="close" onclick="cartClose()">×</button><h2>Your cart</h2><div id="cart"></div><h3 id="total"></h3><button class="pill" style="width:100%" onclick="checkout()">Demo checkout</button></div></div>
+<div class="modal" id="modal"><div class="modal-card"><button class="close" onclick="modalClose()">×</button><h2>Demo checkout</h2><p style="background:#fff4c7;padding:12px;border-radius:10px">No real payment is collected.</p><form onsubmit="place(event)"><input required placeholder="Name" style="width:100%;padding:12px;margin:5px 0"><input required placeholder="Phone" style="width:100%;padding:12px;margin:5px 0"><input required placeholder="Address" style="width:100%;padding:12px;margin:5px 0"><button class="pill" type="submit">Place demo order</button></form></div></div>
+<script>
+const P=[
+["Shadow Oversized Tee","T-Shirts",899,"T","NEW",1],
+["Signal Graphic Tee","T-Shirts",799,"X","HOT",1],
+["Core Oxford Shirt","Shirts",1299,"O","",0],
+["Night Check Shirt","Shirts",1499,"N","NEW",1],
+["Relaxed Black Jeans","Jeans",1899,"J","BEST",1],
+["Washed Blue Jeans","Jeans",1799,"W","",0],
+["Wide Leg Trousers","Trousers",1599,"P","NEW",1],
+["Utility Cargo Trousers","Trousers",1699,"C","",0],
+["Midnight Hoodie","Hoodies",1799,"H","HOT",1],
+["Varsity Bomber Jacket","Jackets",2499,"B","NEW",1],
+["Everyday Shorts","Shorts",999,"S","",0],
+["Classic XYZ Cap","Caps",699,"C","HOT",1],
+["Urban Crossbody Bag","Bags",1199,"B","NEW",1],
+["Street Runner","Footwear",2299,"R","BEST",1],
+["Silver Chain","Accessories",599,"A","HOT",1],
+["XYZ Watch","Accessories",1599,"W","NEW",1]
+];
+let C=JSON.parse(localStorage.xyzCart||"[]");
+const money=n=>"₹"+n.toLocaleString("en-IN");
+function render(a=P){products.innerHTML=a.map((p,i)=>`<article class=product><div class=pic>${p[4]?`<span class=badge>${p[4]}</span>`:""}<b>${p[3]}</b></div><div class=info><h3>${p[0]}</h3><span class=muted>${p[1]}</span><div class=price>${money(p[2])}</div><div class=actions><button onclick="add(${P.indexOf(p)})">Add to cart</button><button class=ghost onclick="alert('${p[0]}\nSizes and details are demo data.')">Details</button></div></div></article>`).join("")}
+function filter(c,e){document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));e.classList.add("active");render(c==="All"?P:P.filter(x=>x[1]===c))}
+function add(i){C.push(i);save();cartOpen()}
+function save(){localStorage.xyzCart=JSON.stringify(C);count.textContent=C.length}
+function cartOpen(){renderCart();drawer.classList.add("open")}
+function cartClose(){drawer.classList.remove("open")}
+function renderCart(){let m={};C.forEach(i=>m[i]=(m[i]||0)+1);cart.innerHTML=Object.keys(m).length?Object.keys(m).map(i=>`<div class=cartrow><div class=mini>${P[i][3]}</div><div><b>${P[i][0]}</b><br>${money(P[i][2])}<br>Qty: ${m[i]}</div></div>`).join(""):"<p class=muted>Cart is empty.</p>";total.textContent="Total: "+money(C.reduce((s,i)=>s+P[i][2],0))}
+function checkout(){if(!C.length){alert("Add a product first.");return}cartClose();modal.classList.add("open")}
+function modalClose(){modal.classList.remove("open")}
+function place(e){e.preventDefault();alert("Demo order created. No real payment or delivery was processed.");C=[];save();modalClose()}
+function search(){let q=document.getElementById('topSearch').value;if(!q){document.getElementById('topSearch').focus();return}liveSearch()}
+function liveSearch(){let q=document.getElementById('topSearch').value.toLowerCase().trim();let a=q?P.filter(p=>(p[0]+" "+p[1]).toLowerCase().includes(q)):P;render(a);document.getElementById('shop').scrollIntoView({behavior:'smooth'})}
+function renderTrending(){let t=P.filter(p=>p[5]);document.getElementById('trendingProducts').innerHTML=t.slice(0,4).map((p)=>`<article class=product><div class=pic><span class=badge>🔥 TRENDING</span><b>${p[3]}</b></div><div class=info><h3>${p[0]}</h3><span class=muted>${p[1]}</span><div class=price>${money(p[2])}</div><div class=actions><button onclick="add(${P.indexOf(p)})">Add to cart</button><button class=ghost onclick="alert('${p[0]}\\nTrending product demo.')">Details</button></div></div></article>`).join("")}
+render();renderTrending();save();
+</script>
+<script>
+document.addEventListener('click',e=>{
+  const b=e.target.closest('button');
+  if(!b)return;
+  b.animate([{transform:'scale(.94)'},{transform:'scale(1.04)'},{transform:'scale(1)'}],
+            {duration:220,easing:'cubic-bezier(.2,.8,.2,1)'});
+});
+</script>
+</body></html>
