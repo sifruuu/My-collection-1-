@@ -126,7 +126,7 @@ footer{border-top:1px solid #211d12;padding:35px 0;color:var(--muted)}
    <p>Premium streetwear. Dark, bold and built for everyday fits that don't look ordinary.</p>
    <div class="hero-actions"><button class="btn" onclick="document.querySelector('#trending').scrollIntoView()">Shop trending</button><button class="btn dark" onclick="document.querySelector('#categories').scrollIntoView()">Explore categories</button></div>
   </div>
-  <div class="hero-art"><img src="assets/hoodie.png" alt="XYZ signature hoodie"></div>
+  <div class="hero-art"><img src="hoodie.png" alt="XYZ signature hoodie"></div>
  </div>
 </section>
 
@@ -225,7 +225,7 @@ let cart=JSON.parse(localStorage.xyzCart||"[]");
 const money=n=>"₹"+n.toLocaleString("en-IN");
 
 function visual(p){
- if(p.img.endsWith(".png")) return `<img src="assets/${p.img}" alt="${p.n}">`;
+ if(p.img.endsWith(".png")) return `<img src="${p.img}" alt="${p.n}">`;
  return `<div style="font-size:70px;font-weight:1000;color:#f3c51b">${p.c[0]}</div>`;
 }
 function card(p){
